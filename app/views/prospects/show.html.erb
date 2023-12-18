@@ -1,0 +1,7 @@
+<p style="color: green"><%= notice %></p>
+<%= turbo_frame_tag "top" do %>
+<%= render @prospect %>
+<div>
+  <%= link_to "Back to prospects",prospects_path( @prospects) %>
+</div>
+<%end %>

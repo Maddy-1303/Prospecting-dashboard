@@ -1,0 +1,37 @@
+<p style="color: green"><%= notice %></p>
+
+<p style="color: green"><%= notice %></p>
+<div class="Polaris-LegacyCard">
+  <div class="Polaris-LegacyCard__Header">
+    <h2 class="Polaris-Text--root Polaris-Text--headingMd Polaris-Text--semibold">
+      <p class="Polaris-Text--root Polaris-Text--heading2xl Polaris-Text--semibold">
+        Prospects
+      </p>
+    </h2>
+  </div>
+</div>
+
+<%= turbo_stream_from "prospects" %>
+
+<div id="prospects">
+  <% @prospects.each do |prospect| %>
+    <%= render prospect %>
+    <p>
+
+      <%= turbo_frame_tag "_top" do %>
+
+        <%= link_to "Show this prospect", prospect, data: { turbo_frame: "_top" },class: "Polaris-Button Polaris-Button--primary"  %>
+      <%end %>
+        <%= turbo_frame_tag "editprospect" do %>
+      <%= link_to "Edit this prospect", edit_prospect_path(prospect), class: "Polaris-Button Polaris-Button--destructive" %>
+        <%end %>
+      <%= button_to "Destroy this project", prospect, method: :delete,class: "Polaris-Button Polaris-Button--destructive" %>
+
+
+    </p>
+  <% end %>
+</div>
+
+<%= turbo_frame_tag "newprospect" do %>
+<%= link_to "New prospect", new_prospect_path,class: "Polaris-Button Polaris-Button--primary" %>
+<%end %>

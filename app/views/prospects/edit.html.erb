@@ -1,0 +1,12 @@
+<%= turbo_frame_tag "editprospect" do %>
+
+  <h1>Editing prospect</h1>
+
+<%= render "form", prospect: @prospect %>
+
+<br>
+
+<div>
+  <%= link_to "Back to prospects", @prospects %>
+</div>
+<%end %>
